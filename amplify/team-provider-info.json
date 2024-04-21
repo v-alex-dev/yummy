@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-yummy-dev-5b093-authRole",
+      "UnauthRoleArn": "arn:aws:iam::891377122508:role/amplify-yummy-dev-5b093-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::891377122508:role/amplify-yummy-dev-5b093-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-yummy-dev-5b093-deployment",
+      "UnauthRoleName": "amplify-yummy-dev-5b093-unauthRole",
+      "StackName": "amplify-yummy-dev-5b093",
+      "StackId": "arn:aws:cloudformation:eu-west-1:891377122508:stack/amplify-yummy-dev-5b093/247c00d0-fb61-11ee-8ca0-0612d8a8c1e9",
+      "AmplifyAppId": "d1snnpfhfer5im"
+    },
+    "categories": {
+      "api": {
+        "yummy": {}
+      }
+    }
+  }
+}

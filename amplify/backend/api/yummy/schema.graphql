@@ -1,0 +1,52 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+type Recipe @model {
+  id: ID!
+  title: String
+  step: [Step] @hasMany
+  ingredients: [IngredientRecipe] @hasMany
+  categorieRecipeId: ID
+  categorie: CategorieRecipes @hasOne(fields: ["categorieRecipeId"])
+}
+
+type CategorieIngredient @model {
+  id: ID!
+  name: String
+}
+
+type CategorieRecipes @model {
+  id: ID!
+  name: String
+}
+
+type Step @model {
+  id: ID!
+  number: Int
+  description: String
+}
+
+type Ingredient @model {
+  id: ID!
+  name: String!
+  categorieIngredientId: ID
+  categorie: CategorieIngredient @hasOne(fields: ["categorieIngredientId"])
+}
+
+type IngredientRecipe @model {
+  recipeId: ID
+  ingredientId: ID
+  recipe: Recipe @hasOne(fields: ["recipeId"])
+  ingredient: Ingredient @hasOne(fields: ["ingredientId"])
+  quanity: Float
+  measurement: Measurement
+}
+
+enum Measurement {
+  MILILITRE
+  LITRE
+  MILIGRAMME
+  GRAMME
+}
