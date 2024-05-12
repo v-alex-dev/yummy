@@ -1,0 +1,7 @@
+<form [formGroup]="formGroup" (ngSubmit)="onSubmitCI()">
+  <div class="form-group">
+    <label for="category">Category Ingredients</label>
+    <input type="text" pInputText formControlName="category" />
+  </div>
+  <button type="submit" class="p-button">Submit</button>
+</form>

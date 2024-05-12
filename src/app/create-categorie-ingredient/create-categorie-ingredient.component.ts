@@ -2,27 +2,18 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
-import { CreateCategorieIngredientComponent } from '../create-categorie-ingredient/create-categorie-ingredient.component';
-import { SelectCategoryIComponent } from '../select-category-i/select-category-i.component';
 
 // Amplify-api
 import { generateClient, type Client } from 'aws-amplify/api';
 import * as mutations from '../../graphql/mutations';
-
 @Component({
-  selector: 'app-create-categorie-recipe',
+  selector: 'app-create-categorie-ingredient',
   standalone: true,
-  imports: [
-    InputTextModule,
-    ButtonModule,
-    ReactiveFormsModule,
-    CreateCategorieIngredientComponent,
-    SelectCategoryIComponent,
-  ],
-  templateUrl: './create-categorie-recipe.component.html',
-  styleUrl: './create-categorie-recipe.component.scss',
+  imports: [ReactiveFormsModule, ButtonModule, InputTextModule],
+  templateUrl: './create-categorie-ingredient.component.html',
+  styleUrl: './create-categorie-ingredient.component.scss',
 })
-export class CreateCategorieRecipeComponent {
+export class CreateCategorieIngredientComponent {
   public client: Client = generateClient();
   formGroup: FormGroup = new FormGroup({});
   ngOnInit(): void {
@@ -31,10 +22,10 @@ export class CreateCategorieRecipeComponent {
     });
   }
 
-  async onSubmitCR() {
+  async onSubmitCI() {
     try {
       const response = await this.client.graphql({
-        query: mutations.createCategorieRecipes,
+        query: mutations.createCategorieIngredient,
         variables: {
           input: {
             name: this.formGroup.value.category,
